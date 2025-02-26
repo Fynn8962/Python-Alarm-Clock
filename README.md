@@ -1,4 +1,4 @@
-# python Alarm Clock
+# Python Alarm Clock
 Fynn Huber              
 26.02.2025
 
