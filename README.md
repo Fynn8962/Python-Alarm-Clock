@@ -21,3 +21,5 @@ Mithilfe von Python in der IDE Visual Studio Code einen Wecker Programmieren. De
 
 **Fortschritt**            
 ..
+
+ &nbsp;
