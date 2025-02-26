@@ -23,6 +23,6 @@ Ich möchte dieses Projekt meine Python-Kenntnisse erweitern, da ich noch mit vi
   - [ ] Wie soll dieses Grob aussehen
 
 **Fortschritt**            
-..
+..GUI maybe mit tkinter
 
  &nbsp;
