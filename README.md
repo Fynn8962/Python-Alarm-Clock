@@ -13,6 +13,9 @@ Mithilfe von Python in der IDE Visual Studio Code einen Wecker Programmieren. De
 - Stoppuhr
 - Timer
 
+## Ziel
+Ich möchte dieses Projekt meine Python-Kenntnisse erweitern, da ich noch mit viel in der Sprache gearbeitet habe. Ausserdem will ich mehr praktische Erfahrung durch eigene Projekte sammeln.
+
  &nbsp;
 
 ### 26.02.2025
