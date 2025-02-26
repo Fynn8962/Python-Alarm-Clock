@@ -31,7 +31,7 @@ Um eine Grobe Vorstellung zu haben, habe ich in DrawIO eine kurze Skizze gemacht
  &nbsp;
 
 ### 26.02.2025
-  - [ ] Was brauche ich damit ich ein Interface (den "Bildschirm") des Weckers darstellen kann
-  - [ ] Wie soll dieses Grob aussehen
+  - [ ] 
+  - [ ] 
 
 **Fortschritt**  
