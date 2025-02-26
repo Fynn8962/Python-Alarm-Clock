@@ -10,6 +10,7 @@ Mithilfe von Python in der IDE Visual Studio Code einen Wecker Programmieren. De
 - Stoppuhr
 - Timer
 
+ &nbsp;
 
-### 26.02.2025
+**26.02.2025**
   
