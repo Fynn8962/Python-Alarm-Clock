@@ -24,7 +24,7 @@ Ich möchte dieses Projekt meine Python-Kenntnisse erweitern, da ich noch mit vi
 
 **Fortschritt**            
 Um in Python in GUI zu erstellen habe ich mich für das Tkinter Framework entschieden. Es ist einfach zu benutzen und gut um GUI für applikation zu erstellen. Ich werde mich damit befassen wie das Framework funktioniert wenn ich mit dem Projekt (Coden) anfange.
-![Projekt-Logo](./images/AlarmClockPrototype.png)
-<img src="https://github.com/Fynn8962/Lern-Periode-5/blob/main/GIF_Website.gif" alt="GIF zu Responsive Design" width="500" >
+
+<img src="https://github.com/Fynn8962/Python-Alarm-Clock/blob/main/Images/AlarmClockPrototype.png" alt="Alarm Clock Prototype" width="500" >
 
  &nbsp;
