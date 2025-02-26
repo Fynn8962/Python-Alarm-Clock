@@ -19,8 +19,8 @@ Ich möchte dieses Projekt meine Python-Kenntnisse erweitern, da ich noch mit vi
  &nbsp;
 
 ### 26.02.2025
-  - [ ] Was brauche ich damit ich ein Interface (den "Bildschirm") des Weckers darstellen kann
-  - [ ] Wie soll dieses Grob aussehen
+  - [x] Was brauche ich damit ich ein Interface (den "Bildschirm") des Weckers darstellen kann
+  - [x] Wie soll dieses Grob aussehen
 
 **Fortschritt**            
 Um in Python in GUI zu erstellen habe ich mich für das Tkinter Framework entschieden. Es ist einfach zu benutzen und gut um GUI für applikation zu erstellen. Ich werde mich damit befassen wie das Framework funktioniert wenn ich mit dem Projekt (Coden) anfange.
