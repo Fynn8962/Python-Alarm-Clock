@@ -32,8 +32,9 @@ Um eine Grobe Vorstellung zu haben, habe ich in DrawIO eine kurze Skizze gemacht
  &nbsp;
 
 ### 03.03.2025
-  - [ ] Projekt erstellen, erste Schritte um das Framework zu benutzen suchen. 
-  - [ ] Erste GUI Oberfläche erstellen. 
+  - [ ] Testprojekt erstellen, erste Schritte für das Framework.
+  - [ ] Grundlagen von tkinter verstehen und diese um Testprojekt umsetzen. 
 
 **Fortschritt**  
+
 https://www.youtube.com/watch?v=mop6g-c5HEY
