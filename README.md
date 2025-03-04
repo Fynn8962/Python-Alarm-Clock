@@ -31,8 +31,8 @@ Um eine Grobe Vorstellung zu haben, habe ich in DrawIO eine kurze Skizze gemacht
 
  &nbsp;
 
-### 26.02.2025
-  - [ ] 
-  - [ ] 
+### 03.03.2025
+  - [ ] Projekt erstellen, erste Schritte um das Framework zu benutzen suchen. 
+  - [ ] Erste GUI Oberfläche erstellen. 
 
 **Fortschritt**  
