@@ -27,7 +27,7 @@ Um in Python in GUI zu erstellen habe ich mich für das Tkinter Framework entsch
 
 Um eine Grobe Vorstellung zu haben, habe ich in DrawIO eine kurze Skizze gemacht wie das GUI aussehen könnte.                
 
-<img src="https://github.com/Fynn8962/Python-Alarm-Clock/blob/main/Images/AlarmClockPrototype.png" alt="Alarm Clock Prototype" width="500" >
+<img src="https://github.com/Fynn8962/Python-Alarm-Clock/blob/main/images/AlarmClockPrototype.png" alt="Alarm Clock Prototype" width="500" >
 
  &nbsp;
 
