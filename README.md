@@ -36,3 +36,4 @@ Um eine Grobe Vorstellung zu haben, habe ich in DrawIO eine kurze Skizze gemacht
   - [ ] Erste GUI Oberfläche erstellen. 
 
 **Fortschritt**  
+https://www.youtube.com/watch?v=mop6g-c5HEY
