@@ -25,7 +25,8 @@ Ich möchte dieses Projekt meine Python-Kenntnisse erweitern, da ich noch mit vi
 **Fortschritt**            
 Um in Python in GUI zu erstellen habe ich mich für das Tkinter Framework entschieden. Es ist einfach zu benutzen und gut um GUI für applikation zu erstellen. Ich werde mich damit befassen wie das Framework funktioniert wenn ich mit dem Projekt (Coden) anfange.
 
-Um eine Grobe Vorstellung zu haben, habe ich in DrawIO eine kurze Skizze gemacht wie das GUI aussehen könnte.
+Um eine Grobe Vorstellung zu haben, habe ich in DrawIO eine kurze Skizze gemacht wie das GUI aussehen könnte.                
+
 <img src="https://github.com/Fynn8962/Python-Alarm-Clock/blob/main/Images/AlarmClockPrototype.png" alt="Alarm Clock Prototype" width="500" >
 
  &nbsp;
