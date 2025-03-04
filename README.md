@@ -39,3 +39,11 @@ Um eine Grobe Vorstellung zu haben, habe ich in DrawIO eine kurze Skizze gemacht
 Ich habe durch den Anfang dieses Youtube Tutorials (https://www.youtube.com/watch?v=mop6g-c5HEY) die Grundlagen von tkinter gelernt und diese in einem Testprojekt notiert. Ich habe das tkinter Framework importiert und zusätzlich das ttkboostrap im mehr Designmöglichkeiten zu haben. Anschliessend habe ich ein erstes Testprojekt mithilfe des Tutorials erarbeitet, welches Kilometer in Meilen umrechnet. Das Testprojekt hat mir geholfen den grundlegenden Syntax von tkinter zu verstehen und wie das Framework aufgebaut ist.                  
 Das Testprojekt habe ich hochgeladen.
 
+ &nbsp;
+
+### 03.03.2025
+  - [ ] 
+  - [ ] 
+
+**Fortschritt**  
+
