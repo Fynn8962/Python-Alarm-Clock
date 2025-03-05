@@ -42,8 +42,7 @@ Das Testprojekt habe ich hochgeladen.
  &nbsp;
 
 ### 03.03.2025
-  - [ ] Mit dem Projekt anfangen. Das Gründgerüst wo dann die Informationen angezeigt werden. 
-  - [ ] Ersten Anzeigen wie z.B die Urhzeit einfügen.
+  - [ ] Weiter tkinter anhand des Tutorials lernen um ein gutes Grundwissen zu haben
 
 **Fortschritt**  
-
+Da ich bemerkt habe das es einfach ist wenn ich zuerst noch etwas mehr über tkinter lerne habe ich mich dazu entschieden noch gewisse Themen anhand des Tutorials zu erarbeiten. DIes habe ich in einem neuen Projektordner gemacht da diese Übungscodes nicht umbedingt schön geschrieben sind und mit vielen Kommentaren versehen.
