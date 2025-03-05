@@ -42,7 +42,7 @@ Das Testprojekt habe ich hochgeladen.
  &nbsp;
 
 ### 03.03.2025
-  - [ ] Weiter tkinter anhand des Tutorials lernen um ein gutes Grundwissen zu haben
+  - [x] Weiter tkinter anhand des Tutorials lernen um ein gutes Grundwissen zu haben
 
 **Fortschritt**  
-Da ich bemerkt habe das es einfach ist wenn ich zuerst noch etwas mehr über tkinter lerne habe ich mich dazu entschieden noch gewisse Themen anhand des Tutorials zu erarbeiten. DIes habe ich in einem neuen Projektordner gemacht da diese Übungscodes nicht umbedingt schön geschrieben sind und mit vielen Kommentaren versehen.
+Da ich bemerkt habe, dass es einfach ist, wenn ich zuerst noch etwas mehr über tkinter lerne, habe ich mich dazu entschieden noch gewisse Themen anhand des Tutorials zu erarbeiten. Dies habe ich in einem neuen Projektordner gemacht, da diese Übungscodes nicht um bedingt schön geschrieben sind und mit vielen Kommentaren versehen.
