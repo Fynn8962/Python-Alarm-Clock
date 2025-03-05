@@ -42,8 +42,8 @@ Das Testprojekt habe ich hochgeladen.
  &nbsp;
 
 ### 03.03.2025
-  - [ ] 
-  - [ ] 
+  - [ ] Mit dem Projekt anfangen. Das Gründgerüst wo dann die Informationen angezeigt werden. 
+  - [ ] Ersten Anzeigen wie z.B die Urhzeit einfügen.
 
 **Fortschritt**  
 
