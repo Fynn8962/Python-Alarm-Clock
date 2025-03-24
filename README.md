@@ -69,9 +69,20 @@ Zunächst habe ich die Timer-Funktion implementiert, dabei aber anfangs eine ung
 
  &nbsp;
 
-### dd.mm.2025
-- [ ] Stopwatch Funktion implementieren (Start, Stop, Reset)
+### 24.03.2025
+- [x] Stopwatch Funktion implementieren (Start, Stop, Reset)
 
   
+
+**Fortschritt**  
+Ich habe mithilfe eines Tutorials und KI die Stoppuhr Funktion implementiert. Ich hatte Probleme mit der Millisekunden Anzeige da diese sehr genau sein muss, damit es Funktioniert. Anfangs war die Zeit zu langsam, da die Millisekunden zu langsam hochgingen. Dann habe ich eben mithilfe von KI erfahren, dass es mit der Methode die ich zuerst angewendet habe durch GUI Updates und CPU-Belastung zu Verzögerung kommen kann. Um dies zu beheben habe ich dann anstelle eines Zählers der sich immer um 1 erhöht die echte vergangene Zeit gemessen, mit der time.time() Methode.  
+           
+
+ &nbsp;
+
+### dd.mm.2025
+- [ ] 
+
+ Problem: Wenn der Timer fertig ist und Ring Ring angezeigt wird verschiebt sich das GUI
 
 **Fortschritt**  
