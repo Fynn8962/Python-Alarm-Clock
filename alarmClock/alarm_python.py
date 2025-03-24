@@ -1,12 +1,13 @@
 import time
 import tkinter as tk
 import ttkbootstrap as ttk
+from ttkthemes import ThemedTk
 from time import strftime
-from datetime import datetime
+
 
 # clock
 def update_clock():
-        string_time = strftime('%H:%M:%S %p')
+        string_time = strftime('%H:%M:%S')
         clock_label.config(text = string_time)
         clock_label.after(1000, update_clock)    
 
@@ -15,6 +16,9 @@ def update_clock():
 timer_running = False  
 
 def display_timer():
+        hour.set("00")
+        minute.set("00")
+        second.set("00")
         close_stopwatch()
         hour_entry.place(relx=0.38, rely=0.55, anchor="center", relwidth=0.11, relheight = 0.2) 
         minute_entry.place(relx=0.5, rely=0.55, anchor="center", relwidth=0.11, relheight = 0.2)
@@ -81,7 +85,8 @@ def set_timer():
 
 # stopwatch 
 stopwatch_running = False
-stopwatch_counter = 0
+start_time = 0
+elapsed_time = 0
 
 def display_stopwatch():
         close_timer()
@@ -98,42 +103,49 @@ def close_stopwatch():
         stopwatch_stop.place_forget()
         stopwatch_reset.place_forget()
 
-def update_stopwatch():
-        global stopwatch_running, stopwatch_counter
+def update_stopwatch(): 
+        global stopwatch_running, stopwatch_counter_ms
         if stopwatch_running:
-                mins, secs = divmod(stopwatch_counter, 60)
-                hours, mins = divmod(mins, 60)
-                stopwatch_label.config(text=f"{hours:02d}:{mins:02d}:{secs:02d}")
-                stopwatch_counter += 1
-                stopwatch_label.after(1000, update_stopwatch)
+                current_time = time.time()
+                total_time = elapsed_time + (current_time - start_time)
+        
+                hours, remainder = divmod(total_time, 3600)
+                minutes, seconds = divmod(remainder, 60)
+                millis = int((total_time - int(total_time)) * 100)  # Hundertstel Sekunden
+        
+                stopwatch_label.config(text=f"{int(hours):02d}:{int(minutes):02d}:{int(seconds):02d}.{millis:02d}")
+                stopwatch_label.after(10, update_stopwatch)  
 
 def start_stopwatch():
-    global stopwatch_running
+    global stopwatch_running, start_time
     if not stopwatch_running:
         stopwatch_running = True
+        start_time = time.time()
         update_stopwatch()
 
 def stop_stopwatch():
-    global stopwatch_running
-    stopwatch_running = False
+    global stopwatch_running, elapsed_time
+    if stopwatch_running:
+        elapsed_time += time.time() - start_time
+        stopwatch_running = False
 
 def reset_stopwatch():
-    global stopwatch_running, stopwatch_counter
+    global stopwatch_running, elapsed_time
     stopwatch_running = False
-    stopwatch_counter = 0
-    stopwatch_label.config(text="00:00:00")
+    elapsed_time = 0
+    stopwatch_label.config(text="00:00:00.00")
 
 
 
 # create window
-window = ttk.Window(themename = 'darkly')
+window = ThemedTk(theme="arc") 
 window.title('Alarm Clock')
 window.geometry('750x450')
 window.resizable(False, False)
 
 # clock
 clock_frame = ttk.Frame(window)
-clock_label = ttk.Label(clock_frame, font=("arial", 43), anchor="center", foreground = 'white')
+clock_label = ttk.Label(clock_frame, font=("arial", 43), anchor="center", )#foreground = 'white'
 alt_label = ttk.Label(clock_frame, font=("Arial", 18))
 
 # timer function
@@ -164,7 +176,7 @@ stopwatch_frame = ttk.Frame(window)
 stopwatch_button = ttk.Button(stopwatch_frame, text = 'Stopwatch', command = display_stopwatch)
 
 # stopwatch in main
-stopwatch_label = ttk.Label(clock_frame, font = ("Arial", 18), text = "00:00:00")
+stopwatch_label = ttk.Label(clock_frame, font = ("Arial", 18), text = "00:00:00.00")
 stopwatch_start = ttk.Button(clock_frame, text= "start", command= start_stopwatch)
 stopwatch_stop = ttk.Button(clock_frame, text= "stop", command = stop_stopwatch)
 stopwatch_reset = ttk.Button(clock_frame, text= "reset", command = reset_stopwatch)
