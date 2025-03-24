@@ -59,7 +59,17 @@ Ich habe zuerst damit begonnen ein Grid Layout zu erstellen, in welchem ich mein
 
  &nbsp;
 
-### xx.xx.2025
-  - [] 
+### 21.03.2025
+- [x] Timer Funktion implementieren das bei auslösen ein Effekt oder Ton kommt. 
+- [x] Nach dem gleichen Prinzip wie der Timer eine Stopwatch implementieren.
+
+**Fortschritt**  
+Zunächst habe ich die Timer-Funktion implementiert, dabei aber anfangs eine ungeeignete Methode gewählt. Ich wollte die Eingabe in nur einem Feld ermöglichen, was die Trennung von Stunden, Minuten und Sekunden erschwert hätte. Deshalb entschied ich mich für drei separate Eingabefelder. Danach gestaltete ich die Benutzeroberfläche für die Stoppuhr und passte das Layout an. Die Implementierung der Stoppuhr-Funktion erwies sich als schwieriger als erwartet, und nach viel probieren verlor ich den Überblick über die Funktionen. Daher entschied ich mich, alles zu entfernen und die Funktion beim nächsten Mal neu zu implementieren.
+           
+
+ &nbsp;
+
+### dd.mm.2025
+
 
 **Fortschritt**  
