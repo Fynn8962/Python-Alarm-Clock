@@ -70,6 +70,8 @@ Zunächst habe ich die Timer-Funktion implementiert, dabei aber anfangs eine ung
  &nbsp;
 
 ### dd.mm.2025
+- [ ] Stopwatch Funktion implementieren (Start, Stop, Reset)
 
+  
 
 **Fortschritt**  
