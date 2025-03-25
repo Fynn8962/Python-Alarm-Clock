@@ -84,5 +84,6 @@ Ich habe mithilfe eines Tutorials und KI die Stoppuhr Funktion implementiert. Ic
 - [ ] 
 
  Problem: Wenn der Timer fertig ist und Ring Ring angezeigt wird verschiebt sich das GUI
-
+ Theme änderung implementieren
+ eingabe in timer handlicher, UX besser machen (damit man nicht doppelklick machen muss)
 **Fortschritt**  
