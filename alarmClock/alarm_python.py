@@ -1,30 +1,41 @@
 import time
 import tkinter as tk
 import ttkbootstrap as ttk
-from ttkthemes import ThemedTk
+import winsound
+import datetime
+import threading
 from time import strftime
 
+def entry_select_all(event):
+    event.widget.select_range(0, 'end')
+    return "break" 
 
-# clock
+#region CLOCK FUNCTIONS
 def update_clock():
         string_time = strftime('%H:%M:%S')
         clock_label.config(text = string_time)
-        clock_label.after(1000, update_clock)    
+        clock_label.after(1000, update_clock)  
+#endregion  
 
-
-# timer 
+#region TIMER FUNCTIONS 
 timer_running = False  
 
+
+
 def display_timer():
+        close_stopwatch()
+        close_alarm()
         hour.set("00")
         minute.set("00")
         second.set("00")
-        close_stopwatch()
-        hour_entry.place(relx=0.38, rely=0.55, anchor="center", relwidth=0.11, relheight = 0.2) 
-        minute_entry.place(relx=0.5, rely=0.55, anchor="center", relwidth=0.11, relheight = 0.2)
-        second_entry.place(relx=0.62, rely=0.55, anchor="center", relwidth=0.11, relheight = 0.2)
-        timer_state_button.place(relx=0.5, rely=0.85, anchor="center")
-        timer_state_button.config(text = "start", command = set_timer)
+        hour_entry.place(relx=0.35, rely=0.55, anchor="center", relwidth=0.13, relheight=0.22)
+        minute_entry.place(relx=0.50, rely=0.55, anchor="center", relwidth=0.13, relheight=0.22)
+        second_entry.place(relx=0.65, rely=0.55, anchor="center", relwidth=0.13, relheight=0.22)
+
+        timer_start_button.place(relx=0.3, rely=0.85, anchor="center", relwidth=0.18, relheight = 0.2) 
+        timer_stop_button.place(relx=0.5, rely=0.85, anchor="center", relwidth=0.18, relheight = 0.2)
+        timer_restart_button.place(relx=0.7, rely=0.85, anchor="center", relwidth=0.18, relheight = 0.2)
+        
         timer_button.config(command=close_timer)
 
 def close_timer():
@@ -32,17 +43,49 @@ def close_timer():
         hour_entry.place_forget()
         minute_entry.place_forget()
         second_entry.place_forget()
-        timer_state_button.place_forget()
-        alt_label.pack_forget()
+        timer_start_button.place_forget()
+        timer_stop_button.place_forget()
+        timer_restart_button.place_forget()
+        alt_label.place_forget()
         timer_button.config(command=display_timer)
+        timer_stop_button.config(text= 'stop', command=stop_timer)
         timer_running = False
 
+def update_timer():
 
+        global timeData, timer_running
+        if not timer_running:
+                return
+        
+        if timeData >= 0:
+                mins,secs = divmod(timeData,60)
 
-def set_timer():
-        timer_state_button.config(text = "close", command=close_timer)
+                hours=0
+                if mins >60:
+                        hours, mins = divmod(mins, 60)
+                
+                hour.set("{0:2d}".format(hours))
+                minute.set("{0:2d}".format(mins))
+                second.set("{0:2d}".format(secs))
 
-        global timer_running
+                if(timeData == 0):
+                        winsound.PlaySound("sound.wav",winsound.SND_ASYNC) #sound.wav
+                        hour_entry.place_forget()
+                        minute_entry.place_forget()
+                        second_entry.place_forget()
+                        timer_start_button.place_forget()
+                        timer_restart_button.place_forget()
+                        alt_label.place(relx=0.50, rely=0.55, anchor="center")
+                        alt_label.config(text = "RING RING")
+                        timer_stop_button.config(text='close', command=close_timer)
+                        timer_running = False
+                        return        
+                
+                timeData -= 1
+                window.after(1000, update_timer)
+
+def set_timer():        
+        global timeData, timer_running
         if timer_running:
                 return
         
@@ -55,45 +98,32 @@ def set_timer():
                 minute.set("00")
                 second.set("00")
                 return 
+        update_timer()
         
-        while timeData >-1 and timer_running:
+def stop_timer():
+       global timer_running
+       timer_running = False
 
-                mins,secs = divmod(timeData,60)
-
-                hours=0
-                if mins >60:
-                        hours, mins = divmod(mins, 60)
-
-                        
-                hour.set("{0:2d}".format(hours))
-                minute.set("{0:2d}".format(mins))
-                second.set("{0:2d}".format(secs))
-
-                window.update()
-                time.sleep(1)
-
-                if(timeData == 0):
-                        hour_entry.place_forget()
-                        minute_entry.place_forget()
-                        second_entry.place_forget()
-                        alt_label.pack()
-                        alt_label.config(text = "RING RING")
-                        timer_state_button.config(text = "close", command = close_timer)
-        
-                timeData -= 1
+def restart_timer():
+        global timer_running
         timer_running = False
+        hour.set("00")
+        minute.set("00")
+        second.set("00")
+#endregion
 
-# stopwatch 
+#region STOPWATCH FUNCTIONS 
 stopwatch_running = False
 start_time = 0
 elapsed_time = 0
 
 def display_stopwatch():
         close_timer()
+        close_alarm()
         stopwatch_label.place(relx=0.5, rely=0.55, anchor="center", relheight = 0.2) 
-        stopwatch_start.place(relx=0.3, rely=0.85, anchor="center", relwidth=0.15, relheight = 0.2) 
-        stopwatch_stop.place(relx=0.5, rely=0.85, anchor="center", relwidth=0.15, relheight = 0.2)
-        stopwatch_reset.place(relx=0.7, rely=0.85, anchor="center", relwidth=0.15, relheight = 0.2)
+        stopwatch_start.place(relx=0.3, rely=0.85, anchor="center", relwidth=0.18, relheight = 0.2) 
+        stopwatch_stop.place(relx=0.5, rely=0.85, anchor="center", relwidth=0.18, relheight = 0.2)
+        stopwatch_reset.place(relx=0.7, rely=0.85, anchor="center", relwidth=0.18, relheight = 0.2)
         stopwatch_button.config(command= close_stopwatch)
 
 def close_stopwatch():
@@ -134,21 +164,92 @@ def reset_stopwatch():
     stopwatch_running = False
     elapsed_time = 0
     stopwatch_label.config(text="00:00:00.00")
+#endregion
+
+#region ALARM FUNCTIONS
+alarm_set = False
+
+def display_alarm():
+        global alarm_set
+        if alarm_set:
+               pass
+        elif not alarm_set:
+                hour.set("00")
+                minute.set("00")
+
+        close_timer()
+        close_stopwatch()
+        alarm_button.config(command=close_alarm)
+        alarm_hour_entry.place(relx=0.42, rely=0.55, anchor="center", relwidth=0.13, relheight=0.22)
+        alarm_minute_entry.place(relx=0.58, rely=0.55, anchor="center", relwidth=0.13, relheight=0.22)
+        alarm_set_button.place(relx=0.5, rely=0.85, anchor="center", relwidth=0.18, relheight = 0.2)
+
+def close_alarm():
+       alarm_button.config( command=display_alarm)
+       alarm_hour_entry.place_forget()
+       alarm_minute_entry.place_forget()
+       alarm_set_button.place_forget()
+       alt_label.place_forget()
+       
+def exit_alarm():
+       global alarm_set
+       alarm_set = False
+       alarm_button.config(text= '    Alarm    ', command=display_alarm)
+       alarm_set_button.config(text='start', command=set_alarm)
+       alarm_hour_entry.place_forget()
+       alarm_minute_entry.place_forget()
+       alarm_set_button.place_forget()
+       alt_label.place_forget()
+
+def set_alarm():
+        global alarm_set
+
+        alarm_set_button.config(text='stop', command=exit_alarm)
+
+        alarm_set = True
+        set_alarm_time = f"{hour.get()}:{minute.get()}"
+        print(set_alarm_time)
+
+        def alarm_loop():
+                global alarm_set
+                while True:
+                        if not alarm_set:
+                               break
+                        current_time = datetime.datetime.now().strftime("%H:%M")
+                        alarm_button.config(text="Alarm: " + set_alarm_time)
+                       
+                        if current_time == set_alarm_time:
+                                print("Time to Wake up!")
+                                alarm_hour_entry.place_forget()
+                                alarm_minute_entry.place_forget()
+                                alarm_set_button.place(relx=0.5, rely=0.85, anchor="center", relwidth=0.18, relheight = 0.2)
+                                alt_label.place(relx=0.50, rely=0.55, anchor="center")
+                                alt_label.config(text="AUFSTEEEEHEN")
+                                alarm_set_button.config(text='close', command= close_alarm)
+                                winsound.PlaySound("sound.wav", winsound.SND_ASYNC)
+                                alarm_set = False
+                                break  
+                        time.sleep(1)  
+        
+        
+        alarm_thread = threading.Thread(target=alarm_loop)
+        alarm_thread.daemon = True 
+        alarm_thread.start()
+#endregion      
 
 
-
-# create window
-window = ThemedTk(theme="arc") 
+#WINDOW
+window = ttk.Window(themename="flatly") # solar # minty # sandstone # darly flatly
 window.title('Alarm Clock')
 window.geometry('750x450')
 window.resizable(False, False)
 
-# clock
+#CLOCK
 clock_frame = ttk.Frame(window)
-clock_label = ttk.Label(clock_frame, font=("arial", 43), anchor="center", )#foreground = 'white'
+clock_label = ttk.Label(clock_frame, font=("arial", 43), anchor="center", )
 alt_label = ttk.Label(clock_frame, font=("Arial", 18))
 
-# timer function
+#TIMER
 hour= tk.StringVar()
 minute= tk.StringVar()
 second=tk.StringVar()
@@ -157,32 +258,37 @@ hour.set("00")
 minute.set("00")
 second.set("00")
 
-## timer button
 timer_frame = ttk.Frame(window)                 
 timer_button = ttk.Button(timer_frame, text = '    Timer    ', command = display_timer)
 
-## timer in main
 hour_entry = ttk.Entry(clock_frame, width = 3,  font=("Arial",18), textvariable = hour) 
 minute_entry = ttk.Entry(clock_frame, width = 3,  font=("Arial",18), textvariable = minute)
 second_entry = ttk.Entry(clock_frame, width = 3,  font=("Arial",18), textvariable = second)
-timer_state_button = ttk.Button(clock_frame, command = set_timer)
+timer_start_button = ttk.Button(clock_frame, text='start', command = set_timer)
+timer_stop_button = ttk.Button(clock_frame, text='stop', command = stop_timer)
+timer_restart_button = ttk.Button(clock_frame, text='restart',command = restart_timer)
 
-#stopwatch function
+#STOPWATCH
 stopwatch_placer = ttk.StringVar()
 stopwatch_placer.set("00:00:00")
 
-# Stopwatch button
 stopwatch_frame = ttk.Frame(window)
 stopwatch_button = ttk.Button(stopwatch_frame, text = 'Stopwatch', command = display_stopwatch)
 
-# stopwatch in main
 stopwatch_label = ttk.Label(clock_frame, font = ("Arial", 18), text = "00:00:00.00")
 stopwatch_start = ttk.Button(clock_frame, text= "start", command= start_stopwatch)
 stopwatch_stop = ttk.Button(clock_frame, text= "stop", command = stop_stopwatch)
 stopwatch_reset = ttk.Button(clock_frame, text= "reset", command = reset_stopwatch)
 
+#ALARM 
+alarm_frame = ttk.Frame(window)
+alarm_button = ttk.Button(alarm_frame,  text = '    Alarm    ', command= display_alarm)
 
-# grid  
+alarm_hour_entry = ttk.Entry(clock_frame, width = 3,  font=("Arial",18), textvariable=hour)
+alarm_minute_entry = ttk.Entry(clock_frame, width = 3,  font=("Arial",18), textvariable=minute)
+alarm_set_button =ttk.Button(clock_frame, text= "set", command= set_alarm)
+
+#GRID
 window.columnconfigure(0, weight= 1)
 window.columnconfigure(1, weight= 1)
 window.columnconfigure(2, weight= 1)
@@ -190,21 +296,22 @@ window.rowconfigure(0, weight = 1)
 window.rowconfigure(1, weight = 1)
 window.rowconfigure(2, weight = 1)
 
-
-# clock pack
+#CLOCK PACK
 clock_frame.grid(row =1, column = 1, sticky = 'nesw')
 clock_label.pack( fill = 'both')
-alt_label.pack_forget()
+alt_label.place_forget()
 
-# timer pack
+#TIMER PACK
 timer_frame.grid(row = 2, column = 0, sticky = 'nsew')
-timer_button.pack(expand = 'True', fill="both")
-timer_state_button.place_forget()
+timer_button.pack(expand = 'True', fill='both')
+timer_start_button.place_forget()
+timer_stop_button.place_forget()
+timer_restart_button.place_forget()
 hour_entry.place_forget()
 minute_entry.place_forget()
 second_entry.place_forget()
 
-#stopwatch pack
+#STOPWATCH PACK
 stopwatch_frame.grid(row = 2, column = 2, sticky = 'nsew')
 stopwatch_button.pack(expand='True', fill="both")
 stopwatch_label.place_forget()
@@ -212,6 +319,23 @@ stopwatch_start.place_forget()
 stopwatch_stop.place_forget()
 stopwatch_reset.place_forget()
 
-# run
+#ALARM PACK
+alarm_frame.grid(row=0, column=0, sticky = 'nesw')
+alarm_button.pack(expand='True', fill='both')
+
+alarm_hour_entry.place_forget()
+alarm_minute_entry.place_forget()
+alarm_set_button.place_forget()
+
+#BILD 
+hour_entry.bind("<FocusIn>", entry_select_all)  
+minute_entry.bind("<FocusIn>", entry_select_all)
+second_entry.bind("<FocusIn>", entry_select_all)
+
+alarm_hour_entry.bind("<FocusIn>", entry_select_all)  
+alarm_minute_entry.bind("<FocusIn>", entry_select_all)
+
+
+#RUN
 update_clock()
 window.mainloop()  
