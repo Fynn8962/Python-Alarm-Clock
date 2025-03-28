@@ -81,9 +81,11 @@ Ich habe mithilfe eines Tutorials und KI die Stoppuhr Funktion implementiert. Ic
  &nbsp;
 
 ### dd.mm.2025
-- [ ] 
+- [x] Timer Funktion abändern damit man stoppen und zurücksetzen kann
+- [x] Wecker GUI implementieren
+- [x] Wecker Funktion hinzufügen
 
- Problem: Wenn der Timer fertig ist und Ring Ring angezeigt wird verschiebt sich das GUI
- Theme änderung implementieren
- eingabe in timer handlicher, UX besser machen (damit man nicht doppelklick machen muss)
+
+
 **Fortschritt**  
+Zuerst habe ich eine Start, Stopp und Restart Funktion beim Timer hinzugefügt. Ausserdem habe ich beim Clickevent auf das Eingabefeld hinzugefügt, dass es den Text (die vorhandenen Nullen) automatisch markiert. Somit muss man diese nicht herauslöschen, sondern kann einfach seine beliebigen Zahlen eingeben. Anschliessen habe ich eine ähnlich wie Timer und Stoppuhr eine Wecker Benutzeroberfläche hinzugefügt und dazu auch dessen Funktion. Anders als beim Timer oder bei der Stoppuhr läuft der Wecker auch im Hintergrund weiter (was im Button angezeigt wird). Es wäre nun von Vorteil dies auch für den Timer zu übernehmen, jedoch fehlt mir dazu die Zeit, weshalb ich dies ausserhalb der Lernperiode machen werde und es später in der Projektbeschreibung hinzufüge.
