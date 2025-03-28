@@ -80,7 +80,7 @@ Ich habe mithilfe eines Tutorials und KI die Stoppuhr Funktion implementiert. Ic
 
  &nbsp;
 
-### dd.mm.2025
+### 28.03.2025
 - [x] Timer Funktion abändern damit man stoppen und zurücksetzen kann
 - [x] Wecker GUI implementieren
 - [x] Wecker Funktion hinzufügen
