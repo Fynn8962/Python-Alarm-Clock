@@ -89,3 +89,16 @@ Ich habe mithilfe eines Tutorials und KI die Stoppuhr Funktion implementiert. Ic
 
 **Fortschritt**  
 Zuerst habe ich eine Start, Stopp und Restart Funktion beim Timer hinzugefügt. Ausserdem habe ich beim Clickevent auf das Eingabefeld hinzugefügt, dass es den Text (die vorhandenen Nullen) automatisch markiert. Somit muss man diese nicht herauslöschen, sondern kann einfach seine beliebigen Zahlen eingeben. Anschliessen habe ich eine ähnlich wie Timer und Stoppuhr eine Wecker Benutzeroberfläche hinzugefügt und dazu auch dessen Funktion. Anders als beim Timer oder bei der Stoppuhr läuft der Wecker auch im Hintergrund weiter (was im Button angezeigt wird). Es wäre nun von Vorteil dies auch für den Timer zu übernehmen, jedoch fehlt mir dazu die Zeit, weshalb ich dies ausserhalb der Lernperiode machen werde und es später in der Projektbeschreibung hinzufüge.
+           
+
+ &nbsp;
+
+### 04.04.2025
+- [x] Eingabeüberprüfung damit keine ungültigen Werte eingegeben werden können
+- [ ] Variabeln überarbeiten damit eine konsistente Namensgebung vorhanden ist
+- [ ] Code überaurbeiten, Layout, Zeilenabstände etc. (refactoring)
+
+
+
+**Fortschritt**  
+Ich habe für die Timerfunktion und die Weckerfunktion eine Eingabeüberprüfung implementiert, damit, wenn eine zu grosse Zahl oder ein Buchstabe eingegeben wird, der Wert zurückgesetzt wird. 
