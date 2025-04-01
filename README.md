@@ -93,7 +93,7 @@ Zuerst habe ich eine Start, Stopp und Restart Funktion beim Timer hinzugefügt. 
 
  &nbsp;
 
-### 04.04.2025
+### 01.04.2025
 - [x] Eingabeüberprüfung damit keine ungültigen Werte eingegeben werden können
 - [x] Timer uach im Hintergrund laufen lassen + Anzeige des Timers im Button
 
