@@ -95,10 +95,10 @@ Zuerst habe ich eine Start, Stopp und Restart Funktion beim Timer hinzugefügt. 
 
 ### 04.04.2025
 - [x] Eingabeüberprüfung damit keine ungültigen Werte eingegeben werden können
-
+- [x] Timer uach im Hintergrund laufen lassen + Anzeige des Timers im Button
 
 **Fortschritt**  
-Ich habe für die Timerfunktion und die Weckerfunktion eine Eingabeüberprüfung implementiert, damit, wenn eine zu grosse Zahl oder ein Buchstabe eingegeben wird, der Wert zurückgesetzt wird. 
+Ich habe für die Timerfunktion und die Weckerfunktion eine Eingabeüberprüfung implementiert, damit, wenn eine zu grosse Zahl oder ein Buchstabe eingegeben wird, der Wert zurückgesetzt wird. Ausserdem habe ich den Code so geändert, dass der Timer auch weiterläuft, wenn man diesen schliesst. Zusätzlich wird, wenn der Timer im Hintergrund läuft, die verbleibende Zeit im Button des Timers angezeigt. 
 
  &nbsp;
   
