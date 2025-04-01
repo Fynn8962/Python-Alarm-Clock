@@ -95,10 +95,15 @@ Zuerst habe ich eine Start, Stopp und Restart Funktion beim Timer hinzugefügt. 
 
 ### 04.04.2025
 - [x] Eingabeüberprüfung damit keine ungültigen Werte eingegeben werden können
-- [ ] Variabeln überarbeiten damit eine konsistente Namensgebung vorhanden ist
-- [ ] Code überaurbeiten, Layout, Zeilenabstände etc. (refactoring)
-
 
 
 **Fortschritt**  
 Ich habe für die Timerfunktion und die Weckerfunktion eine Eingabeüberprüfung implementiert, damit, wenn eine zu grosse Zahl oder ein Buchstabe eingegeben wird, der Wert zurückgesetzt wird. 
+
+ &nbsp;
+  
+### 04.04.2025
+- [ ] Variabeln überarbeiten damit eine konsistente Namensgebung vorhanden ist
+- [ ] Code überaurbeiten, Layout, Zeilenabstände etc. (refactoring)
+
+**Fortschritt**  
