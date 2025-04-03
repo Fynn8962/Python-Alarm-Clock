@@ -127,11 +127,3 @@ Zuerst habe ich eine Start, Stopp und Restart Funktion beim Timer hinzugefügt. 
 **Fortschritt**  
 Ich habe für die Timerfunktion und die Weckerfunktion eine Eingabeüberprüfung implementiert, damit, wenn eine zu grosse Zahl oder ein Buchstabe eingegeben wird, der Wert zurückgesetzt wird. Ausserdem habe ich den Code so geändert, dass der Timer auch weiterläuft, wenn man diesen schliesst. Zusätzlich wird, wenn der Timer im Hintergrund läuft, die verbleibende Zeit im Button des Timers angezeigt. 
 Danach habe ich mithilfe von "flake8" den Code PEP8 konform gemacht. Ich habe die meisten Fehler behoben, inklusiven den zu langen Zeilen. Ich finde, das Kürzen der Zeichen hat an manchen Stellen den Code etwas unübersichtlicher gemacht, weshalb ich mir nicht sicher bin, ob es nicht besser wäre dies zurückzurudern. Im hochgeladenen Code sind die Zeilen nach PEP8 gekürzt.
-
- &nbsp;
-  
-### 04.04.2025
-- [ ] Variabeln überarbeiten damit eine konsistente Namensgebung vorhanden ist
-
-
-**Fortschritt**  
