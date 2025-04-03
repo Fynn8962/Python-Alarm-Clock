@@ -35,34 +35,35 @@ def display_timer():
         if timer_running:
                 pass
         elif not timer_running or timer_stoped:
-                hour.set("00")
-                minute.set("00")
-                second.set("00")
-                hour_entry.place(
-                        relx=0.35, rely=0.55, anchor="center",
-                        relwidth=0.13, relheight=0.22
-                )
-                minute_entry.place(
-                        relx=0.50, rely=0.55, anchor="center",
-                        relwidth=0.13, relheight=0.22
-                )
-                second_entry.place(
-                        relx=0.65, rely=0.55, anchor="center",
-                        relwidth=0.13, relheight=0.22
-                )
-                timer_start_button.place(
-                        relx=0.3, rely=0.85, anchor="center",
-                        relwidth=0.18, relheight=0.2
-                )
-                timer_stop_button.place(
-                        relx=0.5, rely=0.85, anchor="center",
-                        relwidth=0.18, relheight=0.2
-                )
-                timer_restart_button.place(
-                        relx=0.7, rely=0.85, anchor="center",
-                        relwidth=0.18, relheight=0.2
-                )
+                timer_hour.set("00")
+                timer_minute.set("00")
+                timer_second.set("00")
+        hour_entry.place(
+                relx=0.35, rely=0.55, anchor="center",
+                relwidth=0.13, relheight=0.22
+        )
+        minute_entry.place(
+                relx=0.50, rely=0.55, anchor="center",
+                relwidth=0.13, relheight=0.22
+        )
+        second_entry.place(
+                relx=0.65, rely=0.55, anchor="center",
+                relwidth=0.13, relheight=0.22
+        )
+        timer_start_button.place(
+                relx=0.3, rely=0.85, anchor="center",
+                relwidth=0.18, relheight=0.2
+        )
+        timer_stop_button.place(
+                relx=0.5, rely=0.85, anchor="center",
+                relwidth=0.18, relheight=0.2
+        )
+        timer_restart_button.place(
+                relx=0.7, rely=0.85, anchor="center",
+                relwidth=0.18, relheight=0.2
+        )
 
+        timer_button.config(command=close_timer)
 
 def close_timer():
         hour_entry.place_forget()
@@ -92,9 +93,9 @@ def update_timer():
                 if mins > 60:
                         hours, mins = divmod(mins, 60)
 
-                hour.set("{0:2d}".format(hours))
-                minute.set("{0:2d}".format(mins))
-                second.set("{0:2d}".format(secs))
+                timer_hour.set("{0:2d}".format(hours))
+                timer_minute.set("{0:2d}".format(mins))
+                timer_second.set("{0:2d}".format(secs))
                 formatted_time = f"{hours:02d}:{mins:02d}:{secs:02d}"
                 timer_button.config(text=formatted_time)
 
@@ -128,13 +129,13 @@ def set_timer():
         timer_running = True
         timer_stoped = False
         try:
-                timeData = (int(hour.get()) * 3600 +
-                            int(minute.get()) * 60 +
-                            int(second.get()))
+                timeData = (int(timer_hour.get()) * 3600 +
+                            int(timer_minute.get()) * 60 +
+                            int(timer_second.get()))
         except ValueError:
-                hour.set("00")
-                minute.set("00")
-                second.set("00")
+                timer_hour.set("00")
+                timer_minute.set("00")
+                timer_second.set("00")
                 return
         update_timer()
 
@@ -148,9 +149,9 @@ def stop_timer():
 def restart_timer():
         global timer_running
         timer_running = False
-        hour.set("00")
-        minute.set("00")
-        second.set("00")
+        timer_hour.set("00")
+        timer_minute.set("00")
+        timer_second.set("00")
         timer_button.config(text="timer")
 # endregion
 
@@ -237,8 +238,8 @@ def display_alarm():
         if alarm_set:
                 pass
         elif not alarm_set:
-                hour.set("00")
-                minute.set("00")
+                timer_hour.set("00")
+                timer_minute.set("00")
 
         close_timer()
         close_stopwatch()
@@ -277,19 +278,19 @@ def set_alarm():
         global alarm_set
 
         try:
-                alarm_hour = int(hour.get())
-                alarm_minute = int(minute.get())
+                alarm_stored_hour = int(alarm_hour.get())
+                alarm_stored_minute = int(timer_minute.get())
 
-                if not (0 <= alarm_hour <= 23 and 0 <= alarm_minute <= 59):
-                        hour.set("00")
-                        minute.set("00")
+                if not (0 <= alarm_stored_hour <= 23 and 0 <= alarm_stored_minute <= 59):
+                        alarm_hour.set("00")
+                        alarm_minute.set("00")
                         return
 
-                set_alarm_time = f"{alarm_hour:02d}:{alarm_minute:02d}"
+                set_alarm_time = f"{alarm_stored_hour:02d}:{alarm_stored_minute:02d}"
 
         except ValueError:
-                hour.set("00")
-                minute.set("00")
+                alarm_hour.set("00")
+                alarm_minute.set("00")
                 return
 
         alarm_set_button.config(text='stop', command=exit_alarm)
@@ -351,13 +352,13 @@ clock_label = ttk.Label(clock_frame, font=("arial", 43),
 alt_label = ttk.Label(clock_frame, font=("Arial", 18))
 
 # TIMER
-hour = tk.StringVar()
-minute = tk.StringVar()
-second = tk.StringVar()
+timer_hour = tk.StringVar()
+timer_minute = tk.StringVar()
+timer_second = tk.StringVar()
 
-hour.set("00")
-minute.set("00")
-second.set("00")
+timer_hour.set("00")
+timer_minute.set("00")
+timer_second.set("00")
 
 timer_frame = ttk.Frame(window)
 timer_button = ttk.Button(timer_frame, text='    Timer    ',
@@ -365,15 +366,15 @@ timer_button = ttk.Button(timer_frame, text='    Timer    ',
                           )
 hour_entry = ttk.Entry(clock_frame, width=3,
                        font=("Arial", 18),
-                       textvariable=hour
+                       textvariable=timer_hour
                        )
 minute_entry = ttk.Entry(clock_frame, width=3,
                          font=("Arial", 18),
-                         textvariable=minute
+                         textvariable=timer_minute
                          )
 second_entry = ttk.Entry(clock_frame, width=3,
                          font=("Arial", 18),
-                         textvariable=second
+                         textvariable=timer_second
                          )
 timer_start_button = ttk.Button(clock_frame,
                                 text='start',
@@ -384,7 +385,7 @@ timer_stop_button = ttk.Button(clock_frame,
                                command=stop_timer
                                )
 timer_restart_button = ttk.Button(clock_frame,
-                                  text='restart',
+                                  text='reset',
                                   command=restart_timer
                                   )
 
@@ -415,6 +416,12 @@ stopwatch_reset = ttk.Button(clock_frame,
                              )
 
 # ALARM
+alarm_hour = tk.StringVar()
+alarm_minute = tk.StringVar()
+
+alarm_hour.set("00")
+alarm_minute.set("00")
+
 alarm_frame = ttk.Frame(window)
 alarm_button = ttk.Button(alarm_frame,
                           text='    Alarm    ',
@@ -423,11 +430,11 @@ alarm_button = ttk.Button(alarm_frame,
 
 alarm_hour_entry = ttk.Entry(clock_frame, width=3,
                              font=("Arial", 18),
-                             textvariable=hour
+                             textvariable=alarm_hour
                              )
 alarm_minute_entry = ttk.Entry(clock_frame, width=3,
                                font=("Arial", 18),
-                               textvariable=minute
+                               textvariable=alarm_minute
                                )
 alarm_set_button = ttk.Button(clock_frame,
                               text="set",
