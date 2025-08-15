@@ -15,7 +15,7 @@ Die Python alarm-clock ist eine in Python programmierte Uhr mithilfe der tkinter
 <img src="https://github.com/Fynn8962/Python-Alarm-Clock/blob/main/images/python_timer.png" alt="Timer GUI" width="500" >
 
 
-**Stoppuhr:** Die Stoppuhr zählt die Zeit auf Millisekunden genau nach oben. Im Gegensatz zum Wecker und zum Timer läuft diese zwar im Hintergrund weiter, wird jedoch nicht passiv angezeigt. (Passive Anzeige wird noch folgen, Stand 03.04.2025)                
+**Stoppuhr:** Die Stoppuhr zählt die Zeit auf Millisekunden genau nach oben. Im Gegensatz zum Wecker und zum Timer läuft diese zwar im Hintergrund weiter, wird jedoch nicht passiv angezeigt.            
 
 <img src="https://github.com/Fynn8962/Python-Alarm-Clock/blob/main/images/python_stopwatch.png" alt="Stoppuhr GUI" width="500" >
 
